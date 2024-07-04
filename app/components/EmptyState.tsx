@@ -1,11 +1,12 @@
 import TopMilo from "./TopMilo"
+import Body from "./Body";
+import Form from "./Form";
 
 const EmptyState = () => {
     return (
         <>
         <TopMilo/> 
-        <div className="
-        px-[20px]
+        {/*px-[20px]
         py-10
         sm:px-6
         lg:px-8
@@ -15,9 +16,20 @@ const EmptyState = () => {
         justify-center
         items-center
         bg-gray-100
+        rounded-b-lg */}
+        <div className="
+        px-[20px]
+        py-10
+        sm:px-6
+        lg:px-8
+        h-full
+        flex
+        flex-row
+        bg-gray-100
         rounded-b-lg">
             <div className="text-center items-center flex flex-col h-full">
-                    <h3 className="mt-2 text-2xl font-semibold text-gray-900">Aqui debe de salir Milo!</h3>
+                    <Body />
+                    <Form />
             </div>
             
         </div>

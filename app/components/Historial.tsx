@@ -4,8 +4,12 @@ const Historial = () => {
     return (
        <> 
         <div className="
+        items-center
+        justify-center
+        flex
+        flex-col
         ">
-            <h1>Historial</h1>
+            <h1 className="font-bold">Historial</h1>
         </div>
         
         </>
