@@ -1,6 +1,9 @@
+import TopMilo from "./TopMilo"
 
 const EmptyState = () => {
     return (
+        <>
+        <TopMilo/> 
         <div className="
         px-4
         py-10
@@ -17,6 +20,7 @@ const EmptyState = () => {
             </div>
             
         </div>
+        </>
     );
 }
 export default EmptyState;
