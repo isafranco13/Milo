@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import EmptyState from './components/EmptyState';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         <h2 className="font-semibold text-[20px] italic text-[#98A8C4] text-center">La clave para un análisis eficiente</h2>
       </div> {/*Fin Div de titulo */}
       <div className="hidden lg:block lg:pl-80 h-full">
-
+          <EmptyState />
       </div>
     </main>
   );
