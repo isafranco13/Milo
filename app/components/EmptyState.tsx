@@ -14,8 +14,9 @@ const EmptyState = () => {
         flex-row
         justify-center
         items-center
-        bg-gray-100">
-            <div className="text-center items-center flex flex-col">
+        bg-gray-100
+        rounded-b-lg">
+            <div className="text-center items-center flex flex-col h-full">
                     <h3 className="mt-2 text-2xl font-semibold text-gray-900">Aqui debe de salir Milo!</h3>
             </div>
             

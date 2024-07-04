@@ -10,7 +10,7 @@ export default function Home() {
       <div className="w-[30px]">
           <Historial /> 
       </div>
-      <div className="hidden lg:block lg:pl-80 h-full w-full" >
+      <div className="hidden lg:block lg:pl-80 w-full" >
           <EmptyState />
       </div>
       </div>
