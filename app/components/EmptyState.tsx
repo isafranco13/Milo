@@ -5,7 +5,7 @@ const EmptyState = () => {
         <>
         <TopMilo/> 
         <div className="
-        px-4
+        px-[20px]
         py-10
         sm:px-6
         lg:px-8
