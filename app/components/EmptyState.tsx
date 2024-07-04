@@ -11,7 +11,7 @@ const EmptyState = () => {
         items-center
         bg-gray-100">
             <div className="text-center items-center flex flex-col">
-                    <h3>Aqui debe de salir Milo!</h3>
+                    <h3 className="mt-2 text-2xl font-semibold text-gray-900">Aqui debe de salir Milo!</h3>
             </div>
         </div>
     );
