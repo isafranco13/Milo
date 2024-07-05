@@ -19,8 +19,8 @@ const onSumbit: SubmitHandler<FieldValues> = (data) => {
         <div className="
         py-4
         px-4
-        bg-white
-        border-t
+        bg-gray-100
+        
         flex
         items-center
         gap-2
