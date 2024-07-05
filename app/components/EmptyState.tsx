@@ -18,7 +18,7 @@ const EmptyState = () => {
         bg-gray-100
         rounded-b-lg */}
         <div className="
-        px-[20px]
+        px-10
         py-10
         sm:px-6
         lg:px-8
@@ -27,11 +27,10 @@ const EmptyState = () => {
         flex-row
         bg-gray-100
         rounded-b-lg">
-            <div className="text-center items-center flex flex-col h-full">
-                    <Body />
+            <div className="text-center items-center flex flex-col h-full w-full">
+                    <Body /><br />
                     <Form />
             </div>
-            
         </div>
         </>
     );
