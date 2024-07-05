@@ -27,8 +27,8 @@ const EmptyState = () => {
         flex-row
         bg-gray-100
         rounded-b-lg">
-            <div className="text-center items-center flex flex-col h-full w-full">
-                    <Body /><br />
+            <div className="flex flex-col h-full w-full">
+                    <Body />
                     <Form />
             </div>
         </div>

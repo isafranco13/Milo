@@ -2,6 +2,7 @@
 import React from "react";
 import {FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import MessageInput from "./MessageInput";
+import Image from 'next/image';
 
 const Form = ()  => {
 const { register, handleSubmit, setValue, formState: { errors }} = useForm<FieldValues>({
@@ -20,15 +21,13 @@ const onSumbit: SubmitHandler<FieldValues> = (data) => {
         py-4
         px-4
         bg-gray-100
-        
         flex
         items-center
         gap-2
         lg:gap-4
-        w-full
-        rounded-lg">
+        w-full">
             <form onSubmit={handleSubmit(onSumbit)}
-            className="flex items-center gap-2 lg:gap-4 w-full">
+            className="flex items-center gap-2 lg:gap-[10px] w-full">
                 <MessageInput 
                     id="message"
                     register={register}
@@ -36,6 +35,9 @@ const onSumbit: SubmitHandler<FieldValues> = (data) => {
                     required
                     placeholder="Escribe un mensaje"
                 />
+                <button type="submit" className="rounded-full p-2 bg-[#2c4277] cursor-pointer hover:bg-[#ecf1f6] transition w-[37px] h-[37px]">
+                    <Image src="/enviar.png" alt="enviar" width={35} height={35} />
+                </button>
             </form>
         </div>
     );
