@@ -17,7 +17,7 @@ const onSumbit: SubmitHandler<FieldValues> = (data) => {
 };
 
     return(
-        <div className="
+        <div >{/*className="
         py-4
         px-4
         bg-gray-100
@@ -25,19 +25,15 @@ const onSumbit: SubmitHandler<FieldValues> = (data) => {
         items-center
         gap-2
         lg:gap-4
-        w-full">
-            <form onSubmit={handleSubmit(onSumbit)}
-            className="flex items-center gap-2 lg:gap-[10px] w-full">
-                <MessageInput 
-                    id="message"
-                    register={register}
-                    errors={errors}
-                    required
-                    placeholder="Escribe un mensaje"
-                />
-                <button type="submit" className="rounded-full p-2 bg-[#2c4277] cursor-pointer hover:bg-[#ecf1f6] transition w-[37px] h-[37px]">
+        w-full" */}
+            <form onSubmit={handleSubmit(onSumbit)}> {/* style del form*/}
+                <fieldset className="flex gap-2">
+                    <textarea className="w-full resize-none rounded-md bg-white p-2 text-black"></textarea>
+                    <button type="submit" className="rounded-full p-2 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[37px] h-[37px]">
                     <Image src="/enviar.png" alt="enviar" width={35} height={35} />
-                </button>
+                    </button>
+                </fieldset>
+                
             </form>
         </div>
     );
