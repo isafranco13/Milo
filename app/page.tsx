@@ -1,9 +1,13 @@
+"use client";
 import Image from 'next/image';
 import EmptyState from './components/EmptyState';
 import Historial from './components/Historial';
+import { useState } from 'react';
 
 export default function Home() {
+  const [messageText, setMessageText] = useState("");
   return (
+    <>
     <main className="h-full">
       
       <div className="flex flex-row h-full">
@@ -15,5 +19,6 @@ export default function Home() {
       </div>
       </div>
     </main>
+    </>
   );
 }
