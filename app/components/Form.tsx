@@ -9,7 +9,7 @@ export default function Form () {
     const [messageText, setMessageText] = useState("");
     const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("MessageText", messageText);
+        console.log("MessageText: ", messageText);
     }
     return(
         <div >{/*className="
