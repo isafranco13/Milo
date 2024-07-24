@@ -5,16 +5,12 @@ import MessageInput from "./MessageInput";
 import Image from 'next/image';
 import { useState } from 'react';
 
-const Form = ()  => {
+export default function Form () {
     const [messageText, setMessageText] = useState("");
-    const { register, handleSubmit, setValue, formState: { errors }} = useForm<FieldValues>({
-    defaultValues: {
-        message: '',
-    },
-});
-
-
-
+    const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("MessageText", messageText);
+    }
     return(
         <div >{/*className="
         py-4
@@ -25,7 +21,7 @@ const Form = ()  => {
         gap-2
         lg:gap-4
         w-full" */}
-            <form onSubmit={handleSubmit}> {/* style del form*/}
+            <form onSubmit={handleSumbit}> {/* style del form*/}
                 <fieldset className="flex gap-2">
                     <textarea 
                     value={messageText}
@@ -41,4 +37,3 @@ const Form = ()  => {
         </div>
     );
 }
-export default Form;
