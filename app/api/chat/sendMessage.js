@@ -1,3 +1,5 @@
+import { OpenAIEdgeStream } from "openai-edge-stream";
+
 export const config = {
  runtime: "edge",
 };
