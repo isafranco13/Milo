@@ -7,9 +7,11 @@ import { useState } from 'react';
 
 export default function Form () {
     const [messageText, setMessageText] = useState("");
-    const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+    
+    const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("MessageText: ", messageText);
+        const response = await fetch("api/chat/sendMessage");
     }
     return(
         <div >{/*className="
