@@ -11,7 +11,19 @@ export default function Form () {
     const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("MessageText: ", messageText);
-        const response = await fetch("api/chat/sendMessage");
+        const response = await fetch("api/chat/sendMessage", {
+            method:"POST",
+            headers:{
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({message: messageText}),
+        });
+        const data= response.ok;
+        if(!data){
+            return;
+        }
+        //const reader= data.getReader();
+        //await streamReader(reader);
     }
     return(
         <div >{/*className="
