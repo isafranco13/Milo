@@ -8,15 +8,16 @@ import {streamReader} from "openai-edge-stream";
 export default function Form () {
     const [messageText, setMessageText] = useState("");
     
-    const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSumbit = async (e) => {
         e.preventDefault();
         console.log("MessageText: ", messageText);
-        const response = await fetch('/api/chat/sendMessage', {
+        const response = await fetch("/api/chat/sendMessage", {
             method:'POST',
             headers:{
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({messageText}),
+            body: JSON.stringify({message: messageText}),
+            
         });
         const data= response.body;
         //const data = await response.json();
