@@ -23,8 +23,8 @@ export default function Form () {
             return;
         }
         const reader= data.getReader();
-        await streamReader(reader, async (message) =>{
-            console.log("Message:", message)
+        await streamReader(reader, (message) =>{
+            console.log("Message AI:", message)
         });
     }
     return(
