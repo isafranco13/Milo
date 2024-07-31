@@ -16,7 +16,7 @@ export default function Form () {
             headers:{
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({message: messageText}),
+            body: JSON.stringify({messageText}),
         });
         const data= response.body;
         //const data = await response.json();
