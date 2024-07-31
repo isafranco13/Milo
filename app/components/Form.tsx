@@ -1,9 +1,9 @@
-"use client";
+//"use client";
 import React from "react";
 import {FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import MessageInput from "./MessageInput";
 import Image from 'next/image';
 import { useState } from 'react';
+import {streamReader} from "openai-edge-stream";
 
 export default function Form () {
     const [messageText, setMessageText] = useState("");
@@ -18,12 +18,14 @@ export default function Form () {
             },
             body: JSON.stringify({message: messageText}),
         });
-        const data= response.ok;
+        const data= response.body;
         if(!data){
             return;
         }
-        //const reader= data.getReader();
-        //await streamReader(reader);
+        const reader= data.getReader();
+        await streamReader(reader, async (message) =>{
+            console.log("Message:", message)
+        });
     }
     return(
         <div >{/*className="
