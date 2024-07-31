@@ -18,8 +18,8 @@ export default function Form () {
             },
             body: JSON.stringify({message: messageText}),
         });
-        //const data= response.body;
-        const data = await response.json();
+        const data= response.body;
+        //const data = await response.json();
         if(!data){
             return;
         }
