@@ -1,8 +1,9 @@
 import { OpenAIEdgeStream } from "openai-edge-stream";
 
-export const config = {
+/*export const config = {
  runtime: 'edge',
-};
+};*/
+export const runtime = 'edge';
 
 export async function handler(req){
     try{
