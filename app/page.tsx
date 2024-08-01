@@ -9,26 +9,27 @@ import TopMilo from "./components/TopMilo";
 export default function Home() {
   const [message, setMessageText] = useState("");
   
-  const handleSumbit = async (e) => {
+  const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("MessageText:", message);
-    const res = await fetch("/api/sendMessage", {
-        method:'POST',
+    const res = await fetch("/api/generate", {
+        method:"POST",
         headers:{
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({message: message}),
+        body: JSON.stringify({message}),
     });
     
-    const data= res.body;
-    //const data = await response.json();
-    if(!data){
+    //const data= res.body;
+  const data = await res.json();
+  console.log(data);
+    /*if(!data){
       throw new Error("No sirve la api alv");   
-    }
-    const reader= data.getReader();
-    await streamReader(reader, (message) =>{
+    }*/
+    //const reader= data.getReader();
+    /*await streamReader(reader, (message) =>{
         console.log("Message AI:", message)
-    });
+    });*/
 }
 
   return (

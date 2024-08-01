@@ -1,15 +1,32 @@
 import { OpenAIEdgeStream } from "openai-edge-stream";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import {OpenAIStream, StreamingTextResponse} from 'openai';
+//import {Configuration, OpenAIApi} from "openai";
+
 
 const openai = new OpenAI({
-    apiKey: process.env.OpenAI_API_KEY || '',
-})
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+//Si la API Key no es valido lanzara un error
+if(!openai.apiKey){
+    throw new Error("No se pudo conectar al chatgpt pirata :(")
+}
+
+//const openai = new OpenAIApi(configuration)
 export const runtime = 'edge';
 
-export async function POST(req, res){
-    const {message} = await req.json();
+export async function POST(){
+    
+        const chatCompletion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{"role": "user", "content": "Hello"}],
+        });
+        console.log(chatCompletion.choices[0].message);
+        return NextResponse.json({message: "Hello from the server!"});
+    
+    
+    /*const {message} = await req.json();
     console.log ("mensaje del cliente:", message);
 
     const response = await openai.chat.completions.create({
@@ -26,7 +43,7 @@ export async function POST(req, res){
     });
     
     const stream = OpenAIStream(response);
-    return new StreamingTextResponse(stream);
+    return new StreamingTextResponse(stream);*/
 }
 
 /*export default async function POST(req){
