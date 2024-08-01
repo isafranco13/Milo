@@ -5,7 +5,8 @@ import Historial from './components/Historial';
 import { useState, useEffect } from 'react';
 import {streamReader} from "openai-edge-stream";
 import TopMilo from "./components/TopMilo";
-import {v4 as uuid} from "uuid";
+import OpenAI from "openai";
+import axios from "axios";
 
 export default function Home() {
   const [incomingMessage, setIncomingMessage] = useState("");
@@ -20,8 +21,9 @@ export default function Home() {
       message: message,
       }]
     )
-     
     console.log("MessageText:", message);
+    sendMessage(message);
+    setMessage("");
     /*const res = await fetch("/api/generate", {
         method:"POST",
         headers:{
@@ -29,19 +31,27 @@ export default function Home() {
         },
         body: JSON.stringify({message: message}),
     });*/
-    setMessage("");
-    //const data= res.body;
- // const data = await res.json();
-  //console.log(data);
-    /*if(!data){
-      throw new Error("No sirve la api alv");   
-    }*/
-    //const reader= data.getReader();
-    /*await streamReader(reader, (message) =>{
-        console.log("Message AI:", message)
-        //Debe de poder verse la respuesta en pantalla
-    });*/
 }
+ const sendMessage = (message) => {
+   const url = "https://api.openai.com/v1/chat/completions";
+   const headers = {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`
+   };
+   const data = {
+    model: "gpt-3.5-turbo",
+    message: [{role: "user", "content": message}]
+   };
+   setIsLoading(true);
+   axios.post(url, data, {headers: headers}).then((response) => {
+      console.log(response);
+      setChatLog((prevChatLog) => [...prevChatLog, {type: "bot", message: response.data.choices[0].message.content}]);
+      setIsLoading(false);
+   }).catch((error) => {
+      setIsLoading(false);
+      console.log(error);
+   })
+ }
 
   return (
     <>
