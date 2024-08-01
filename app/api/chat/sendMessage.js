@@ -1,4 +1,7 @@
-import { OpenAIEdgeStream } from "openai-edge-stream";
+import OpenAI from "openai";
+import { OpenAIEdgeStream,} from "openai-edge-stream";
+import {OpenAIStream, StreamingTextResponse} from "ai";
+import { NextResponse } from "next/server";
 
 /*export const config = {
  runtime: 'edge',
@@ -7,7 +10,7 @@ export const runtime = 'edge';
 
 export default async function handler(req){
     try{
-    const {message} = req.json;
+    const message = await req.json();
     const stream= await OpenAIEdgeStream('https://api.openai.com/v1/chat/completions',
     {
         headers:{'content-type': 'application/json',
@@ -22,7 +25,8 @@ export default async function handler(req){
     }
     );
     return new Response(stream);
-    
+    //return NextResponse.json(stream);
+
     }catch(e){
         console.log("Un error ha ocurrido al enviar el mensaje", e);
     }
