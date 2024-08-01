@@ -9,6 +9,7 @@ import TopMilo from "./components/TopMilo";
 export default function Home() {
   const [incomingMessage, setIncomingMessage] = useState("");
   const [message, setMessageText] = useState("");
+  const [newChatMessages, setNewChatMessages] = useState([]);
   
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ export default function Home() {
     const reader= data.getReader();
     await streamReader(reader, (message) =>{
         console.log("Message AI:", message)
-        //Mandar el mensjaje al estado previo cada que llegue nueva info
+        //Debe de poder verse la respuesta en pantalla
         setIncomingMessage(s => `${s}${message.content}`)
     });
 }
