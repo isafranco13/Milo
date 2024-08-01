@@ -1,10 +1,7 @@
 "use client";
 import Image from 'next/image';
-import EmptyState from './components/EmptyState';
-import Historial from './components/Historial';
 import { useState, useEffect } from 'react';
 import {streamReader} from "openai-edge-stream";
-import TopMilo from "./components/TopMilo";
 import OpenAI from "openai";
 import axios from "axios";
 
@@ -57,28 +54,20 @@ export default function Home() {
 
   return (
     <>
-    <main className="h-full">
-      {/*<TopMilo/>*/} 
-      <div className="flex flex-row h-full">
-      <div className="w-[30px]">
-          <Historial /> 
-      </div>
-      <div className=" lg:pl-[200px] w-full flex flex-col h-full " >
-        <div className="flex-1">
+    <main className="">
+       
+      <div className="">
+      <div className="" >
+        <div className="flex flex-col space-y4"> {/*Div del chat */}
             {chatLog.map((mess, index) => (
-              <div key="index">{mess.message}</div>
+              <div key="index" className={`flex ${mess.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`${mess.type === 'user' ? 'bg-[#929cca]': 'bg-[#a4a4cc]'} rounded-lg p-4 text-white
+                max-w-sm`}>{mess.message}</div> {/*div del mensaje */}
+              </div>
             ))}</div>
-            <div >{/*className="
-        py-4
-        px-4
-        bg-gray-100
-        flex
-        items-center
-        gap-2
-        lg:gap-4
-        w-full" */}
+            <div > {/*Div del form */}
             <form onSubmit={handleSumbit}> {/* style del form*/}
-                <fieldset className="flex gap-2">
+                <fieldset className="flex gap-6">
                     <textarea 
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -90,7 +79,7 @@ export default function Home() {
                 </fieldset>
                 
             </form>
-        </div>
+            </div>
       </div>
       </div>
     </main>
