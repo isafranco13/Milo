@@ -23,7 +23,7 @@ export async function POST(req){
             messages: [{"role": "user", "content": "Hello"}],
         });
         console.log("hola, soy la API");
-        console.log(chatCompletion.choices[0].message);
+        console.log(chatCompletion.choices[0].text);
         return NextResponse.json({message: "Hello from the server!"});
     
     

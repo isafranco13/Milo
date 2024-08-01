@@ -18,7 +18,7 @@ export default function Home() {
         headers:{
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({message}),
+        body: JSON.stringify({message: message}),
     });
     
     //const data= res.body;
@@ -27,10 +27,12 @@ export default function Home() {
     /*if(!data){
       throw new Error("No sirve la api alv");   
     }*/
-    //const reader= data.getReader();
-    /*await streamReader(reader, (message) =>{
+    const reader= data.getReader();
+    await streamReader(reader, (message) =>{
         console.log("Message AI:", message)
-    });*/
+        //Mandar el mensjaje al estado previo cada que llegue nueva info
+        setIncomingMessage(s => `${s}${message.content}`)
+    });
 }
 
   return (
@@ -42,8 +44,8 @@ export default function Home() {
           <Historial /> 
       </div>
       <div className=" lg:pl-[200px] w-full flex flex-col h-full " >
-        <div className="flex-1 overflow-y-auto">
-            Body!</div>
+        <div className="flex-1 text-white">
+            {incomingMessage}</div>
             <div >{/*className="
         py-4
         px-4
