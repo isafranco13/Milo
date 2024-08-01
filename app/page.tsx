@@ -52,7 +52,7 @@ export default function Home() {
           <Historial /> 
       </div>
       <div className=" lg:pl-[200px] w-full flex flex-col h-full " >
-        <div className="flex-1 text-white">
+        <div className="flex-1">
             {chatLog.map((mess, index) => (
               <div key="index">{mess.message}</div>
             ))}</div>
