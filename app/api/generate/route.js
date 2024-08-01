@@ -16,12 +16,13 @@ if(!openai.apiKey){
 //const openai = new OpenAIApi(configuration)
 export const runtime = 'edge';
 
-export async function POST(){
+export async function POST(req){
     
         const chatCompletion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [{"role": "user", "content": "Hello"}],
         });
+        console.log("hola, soy la API");
         console.log(chatCompletion.choices[0].message);
         return NextResponse.json({message: "Hello from the server!"});
     

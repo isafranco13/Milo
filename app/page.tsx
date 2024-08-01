@@ -7,6 +7,7 @@ import {streamReader} from "openai-edge-stream";
 import TopMilo from "./components/TopMilo";
 
 export default function Home() {
+  const [incomingMessage, setIncomingMessage] = useState("");
   const [message, setMessageText] = useState("");
   
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
