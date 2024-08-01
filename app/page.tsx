@@ -4,20 +4,20 @@ import EmptyState from './components/EmptyState';
 import Historial from './components/Historial';
 import { useState } from 'react';
 import {streamReader} from "openai-edge-stream";
+import TopMilo from "./components/TopMilo";
 
 export default function Home() {
-  const [messageText, setMessageText] = useState("");
+  const [message, setMessageText] = useState("");
   
   const handleSumbit = async (e) => {
     e.preventDefault();
-    console.log("MessageText:", messageText);
+    console.log("MessageText:", message);
     const res = await fetch("/api/sendMessage", {
         method:'POST',
         headers:{
-            'content-type': 'application/json',
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({message: messageText}),
-        
+        body: JSON.stringify({message: message}),
     });
     
     const data= res.body;
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
     <main className="h-full">
-      
+      <TopMilo/> 
       <div className="flex flex-row h-full">
       <div className="w-[30px]">
           <Historial /> 
@@ -54,7 +54,7 @@ export default function Home() {
             <form onSubmit={handleSumbit}> {/* style del form*/}
                 <fieldset className="flex gap-2">
                     <textarea 
-                    value={messageText}
+                    value={message}
                     onChange={(e) => setMessageText(e.target.value)}
                     placeholder="Send a Message..." 
                     className="w-full resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>
