@@ -40,9 +40,11 @@ export default function Home() {
    };
    const data = {
     model: "gpt-3.5-turbo",
-    message: [{role: "user", "content": message}]
+    messages: [{role: "system", content: "Tu eres Milo, Un asistente AI que forma parte de DataDoorAccess que ayuda a los usuarios con preguntas sobre los datos de asistencia de sus empleados, ellos te pasaran datos de nuestra aplicación y tu deberas darles lo que piden, sea un consejo o un resumen sobre que hacer."},
+      {role: "user", "content": message}]
    };
    setIsLoading(true);
+   
    axios.post(url, data, {headers: headers}).then((response) => {
       console.log(response);
       setChatLog((prevChatLog) => [...prevChatLog, {type: "bot", message: response.data.choices[0].message.content}]);
