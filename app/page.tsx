@@ -5,11 +5,12 @@ import Historial from './components/Historial';
 import { useState } from 'react';
 import {streamReader} from "openai-edge-stream";
 import TopMilo from "./components/TopMilo";
+import {v4 as uuid} from "uuid";
 
 export default function Home() {
   const [incomingMessage, setIncomingMessage] = useState("");
   const [message, setMessageText] = useState("");
-  const [newChatMessages, setNewChatMessages] = useState([]);
+  const [newChatMessages, setNewChatMessages] = useState([]); //para el envio de nuevos mensajes del usuario
   
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
