@@ -8,7 +8,6 @@ export const runtime = 'edge';
 export default async function handler(req){
     try{
     const {message} = req.json;
-    console.log("Mensaje del ususario: ", message)
     const stream= await OpenAIEdgeStream('https://api.openai.com/v1/chat/completions',
     {
         headers:{'content-type': 'application/json',

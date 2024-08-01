@@ -10,7 +10,7 @@ export default function Home() {
   
   const handleSumbit = async (e) => {
     e.preventDefault();
-    console.log("MessageText: ", messageText);
+    console.log("MessageText:", messageText);
     const response = await fetch("/api/chat/sendMessage", {
         method:'POST',
         headers:{
@@ -19,10 +19,11 @@ export default function Home() {
         body: JSON.stringify({message: messageText}),
         
     });
+    
     const data= response.body;
     //const data = await response.json();
-    if(!data){
-        return;
+    if(!response.ok){
+      throw new Error("No sirve la api alv");   
     }
     const reader= data.getReader();
     await streamReader(reader, (message) =>{
