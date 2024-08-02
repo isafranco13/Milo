@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import {streamReader} from "openai-edge-stream";
 import OpenAI from "openai";
+import TopMilo from "./components/TopMilo";
 import axios from "axios";
 
 export default function Home() {
@@ -54,35 +55,33 @@ export default function Home() {
 
   return (
     <>
-    <main className="">
-       
-      <div className="">
-      <div className="" >
-        <div className="flex flex-col space-y4"> {/*Div del chat */}
+      <div className="container ">
+      <div className="flex flex-col h-screen">
+         <TopMilo />
+        <div className="flex-grow p-6"> {/*div que da forma al chat */}
+        <div className="flex flex-col space-y-4"> {/*Div del chat */}
             {chatLog.map((mess, index) => (
               <div key="index" className={`flex ${mess.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`${mess.type === 'user' ? 'bg-[#929cca]': 'bg-[#a4a4cc]'} rounded-lg p-4 text-white
                 max-w-sm`}>{mess.message}</div> {/*div del mensaje */}
               </div>
-            ))}</div>
+            ))}
+            </div> {/*fin del div que forma al chat */}
+            </div>{/*fin del del chat */}
             <div > {/*Div del form */}
-            <form onSubmit={handleSumbit}> {/* style del form*/}
-                <fieldset className="flex gap-6">
+            <form onSubmit={handleSumbit} className="flex-none"> {/* style del form*/}
                     <textarea 
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Send a Message..." 
                     className="w-full resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>
-                    <button type="submit" className="rounded-full p-2 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[37px] h-[37px]">
+                    <button type="submit" className="rounded-full p-3 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[37px] h-[37px]">
                     <Image src="/enviar.png" alt="enviar" width={35} height={35} />
                     </button>
-                </fieldset>
-                
             </form>
             </div>
       </div>
       </div>
-    </main>
     </>
   );
 }

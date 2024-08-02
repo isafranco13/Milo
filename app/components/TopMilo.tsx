@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const TopMilo = () => {
     return(
-        <div className=" bg-gray-100 w-full flex items-center rounded-t-l sm:px-4 py-3 px-4 lg:px-6 justify-between">  {/*Div de titulo */}
+        <div className=" bg-[#ECF1F6] w-full flex items-center rounded-t-l sm:px-4 py-3 px-4 lg:px-6 justify-between">  {/*Div de titulo */}
         <div className="flex justify-normal"> {/*Div logo y nombre */}
            &nbsp;&nbsp;&nbsp;
           <h1 className="font-bold text-[50px] text-[#2C4277] text-center">Milo</h1>
