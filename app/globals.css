@@ -8,3 +8,6 @@ body,
   height: 100%;
   background-color: #ECF1F6;
 }
+::-webkit-scrollbar {
+  display: none;
+}

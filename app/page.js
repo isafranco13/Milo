@@ -38,7 +38,9 @@ export default function Home() {
    };
    const data = {
     model: "gpt-3.5-turbo",
-    messages: [{role: "system", content: "Tu eres Milo, Un asistente AI que forma parte de DataDoorAccess que ayuda a los usuarios con preguntas sobre los datos de asistencia de sus empleados, ellos te pasaran datos de nuestra aplicación y tu deberas darles lo que piden, sea un consejo o un resumen sobre que hacer."},
+    messages: [{role: "system", content: "Tu eres Milo, Un asistente IA que forma parte de DataDoorAccess que ayuda a los usuarios con preguntas sobre los datos que genera nuestra aplicación"
+      + ", ellos te pasaran datos de nuestra aplicación como lo son: que porcentaje hay mas de un area a otra de su organización, etc"
+      +" deberas entregarles lo que piden ya sea un consejo para aumentar la productividad o ventas o como mejorar un area."},
       {role: "user", "content": message}]
    };
    setIsLoading(true);
@@ -62,7 +64,7 @@ export default function Home() {
         <div className="flex flex-col space-y-4"> {/*Div del chat */}
             {chatLog.map((mess, index) => (
               <div key="index" className={`flex ${mess.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`${mess.type === 'user' ? 'bg-[#929cca]': 'bg-[#a4a4cc]'} rounded-lg p-4 text-white
+                <div className={`${mess.type === 'user' ? 'bg-[#7a7a9b]': 'bg-[#2c4277]'} rounded-lg p-4 text-white
                 max-w-sm`}>{mess.message}</div> {/*div del mensaje */}
               </div>
             ))}
