@@ -55,7 +55,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="container ">
+      <div className="container mx-auto w-screen">
       <div className="flex flex-col h-screen">
          <TopMilo />
         <div className="flex-grow p-6"> {/*div que da forma al chat */}
