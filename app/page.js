@@ -12,7 +12,7 @@ export default function Home() {
   const [chatLog, setChatLog] = useState([]); //para el envio de nuevos mensajes del usuario
   const [isLoading, setIsLoading] = useState(false);
   
-  const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSumbit = async (e) => {
     e.preventDefault();
     setChatLog((prevChatLog) => [...prevChatLog,
       {type: "user",
