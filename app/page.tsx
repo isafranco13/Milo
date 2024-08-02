@@ -75,9 +75,9 @@ export default function Home() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Send a Message..." 
-                    className="flex-grow px-4 py-2 resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>
-                    <button type="submit" className="rounded-full px-4 py-2 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[50px] h-[50px]">
-                    <Image src="/enviar.png" alt="enviar" width={40} height={40} />
+                    className="flex-grow px-4 py-2 resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>&nbsp;&nbsp;&nbsp;
+                    <button type="submit" className="rounded-full px-4 py-4 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[60px] h-[60px]">
+                    <Image src="/enviar.png" alt="enviar" width={50} height={50} />
                     </button>
                     </div>
 
