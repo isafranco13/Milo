@@ -69,15 +69,18 @@ export default function Home() {
             </div> {/*fin del div que forma al chat */}
             </div>{/*fin del del chat */}
             <div > {/*Div del form */}
-            <form onSubmit={handleSumbit} className="flex-none"> {/* style del form*/}
+            <form onSubmit={handleSumbit} className="flex-none p-6"> {/* style del form*/}
+                    <div className="flex">
                     <textarea 
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Send a Message..." 
-                    className="w-full resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>
-                    <button type="submit" className="rounded-full p-3 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[37px] h-[37px]">
-                    <Image src="/enviar.png" alt="enviar" width={35} height={35} />
+                    className="flex-grow px-4 py-2 resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>
+                    <button type="submit" className="rounded-full px-4 py-2 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[50px] h-[50px]">
+                    <Image src="/enviar.png" alt="enviar" width={40} height={40} />
                     </button>
+                    </div>
+
             </form>
             </div>
       </div>
