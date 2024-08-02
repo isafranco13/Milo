@@ -76,8 +76,8 @@ export default function Home() {
                     <textarea 
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Send a Message..." 
-                    className="flex-grow px-4 py-2 resize-none rounded-md bg-white p-2 text-black border-none focus:outline-none"></textarea>&nbsp;&nbsp;&nbsp;
+                    placeholder="Escriba su Mensaje..." 
+                    className="flex-grow px-4 py-2 resize-none rounded-full bg-white p-2 text-black text-lg border-none focus:outline-none"></textarea>&nbsp;&nbsp;&nbsp;
                     <button type="submit" className="rounded-full px-4 py-4 bg-[#2c4277] cursor-pointer hover:bg-[#23355e] transition w-[60px] h-[60px]">
                     <Image src="/enviar.png" alt="enviar" width={50} height={50} />
                     </button>
